@@ -1,10 +1,29 @@
-// Página vacía creada en el proyecto base. Su contenido lo desarrolla Kenneth.
-// Página vacía (Avance 1): muestra solo su título.
+import { ArrowLeft, UserPlus } from "lucide-react";
+import { Link } from "react-router-dom";
+
+import { EmptyState } from "@/components/common/EmptyState";
+import { PageHeader } from "@/components/common/PageHeader";
+import { Button } from "@/components/ui/button";
+import { PATHS } from "@/routes/paths";
+
+// Registro de un empleado (Avance 1: estructura de la página).
 export default function EmpleadoCrearPage() {
   return (
-    <section className="space-y-2">
-      <h1 className="text-2xl font-semibold tracking-tight">Nuevo empleado</h1>
-      <p className="text-muted-foreground">Aquí irá el formulario para registrar un empleado.</p>
+    <section>
+      <PageHeader titulo="Nuevo empleado" descripcion="Registre los datos de un nuevo empleado.">
+        <Button variant="outline" asChild>
+          <Link to={PATHS.EMPLEADOS}>
+            <ArrowLeft />
+            Volver a empleados
+          </Link>
+        </Button>
+      </PageHeader>
+
+      <EmptyState
+        icono={UserPlus}
+        titulo="Formulario de registro"
+        descripcion="Aquí irá el formulario para registrar un empleado."
+      />
     </section>
   );
 }

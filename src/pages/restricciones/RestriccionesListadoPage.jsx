@@ -1,10 +1,22 @@
-// Página vacía creada en el proyecto base. Su contenido lo desarrolla Kenneth.
-// Página vacía (Avance 1): muestra solo su título.
+import { Ban } from "lucide-react";
+
+import { EmptyState } from "@/components/common/EmptyState";
+import { PageHeader } from "@/components/common/PageHeader";
+
+// Restricciones de horario (Avance 1: estructura de la página).
 export default function RestriccionesListadoPage() {
   return (
-    <section className="space-y-2">
-      <h1 className="text-2xl font-semibold tracking-tight">Restricciones de horario</h1>
-      <p className="text-muted-foreground">Aquí se mostrará el listado de restricciones de horario.</p>
+    <section>
+      <PageHeader
+        titulo="Restricciones de horario"
+        descripcion="Fechas y horas en las que no se pueden agendar citas."
+      />
+
+      <EmptyState
+        icono={Ban}
+        titulo="No hay restricciones para mostrar"
+        descripcion="Aquí se mostrará el listado de restricciones de horario registradas."
+      />
     </section>
   );
 }
