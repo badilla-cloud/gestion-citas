@@ -1,10 +1,31 @@
-// Página vacía creada en el proyecto base. Su contenido lo desarrolla Kenneth.
-// Página vacía (Avance 1): muestra solo su título.
+import { ArrowLeft, Ban } from "lucide-react";
+import { Link, useParams } from "react-router-dom";
+
+import { EmptyState } from "@/components/common/EmptyState";
+import { PageHeader } from "@/components/common/PageHeader";
+import { Button } from "@/components/ui/button";
+import { PATHS } from "@/routes/paths";
+
+// Detalle de una restricción de horario (Avance 1: estructura de la página).
 export default function RestriccionDetallePage() {
+  const { id } = useParams();
+
   return (
-    <section className="space-y-2">
-      <h1 className="text-2xl font-semibold tracking-tight">Detalle de la restricción</h1>
-      <p className="text-muted-foreground">Aquí se mostrará la información completa de la restricción.</p>
+    <section>
+      <PageHeader titulo="Detalle de la restricción" descripcion={`Restricción #${id}`}>
+        <Button variant="outline" asChild>
+          <Link to={PATHS.RESTRICCIONES}>
+            <ArrowLeft />
+            Volver
+          </Link>
+        </Button>
+      </PageHeader>
+
+      <EmptyState
+        icono={Ban}
+        titulo="Información de la restricción"
+        descripcion="Aquí se mostrarán la fecha, el horario y el motivo de la restricción."
+      />
     </section>
   );
 }

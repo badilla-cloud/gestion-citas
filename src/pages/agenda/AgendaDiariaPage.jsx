@@ -1,10 +1,22 @@
-// Página vacía creada en el proyecto base. Su contenido lo desarrolla Kenneth.
-// Página vacía (Avance 1): muestra solo su título.
+import { CalendarDays } from "lucide-react";
+
+import { EmptyState } from "@/components/common/EmptyState";
+import { PageHeader } from "@/components/common/PageHeader";
+
+// Agenda diaria del establecimiento (Avance 1: estructura de la página).
 export default function AgendaDiariaPage() {
   return (
-    <section className="space-y-2">
-      <h1 className="text-2xl font-semibold tracking-tight">Agenda diaria</h1>
-      <p className="text-muted-foreground">Aquí se mostrarán las citas de todos los empleados para la fecha seleccionada.</p>
+    <section>
+      <PageHeader
+        titulo="Agenda diaria"
+        descripcion="Citas de todos los empleados para la fecha seleccionada."
+      />
+
+      <EmptyState
+        icono={CalendarDays}
+        titulo="No hay citas para esta fecha"
+        descripcion="Aquí se mostrarán las citas de todos los empleados para la fecha seleccionada."
+      />
     </section>
   );
 }
