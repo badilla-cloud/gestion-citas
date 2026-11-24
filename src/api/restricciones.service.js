@@ -1,5 +1,11 @@
-// Servicio del módulo de restricciones.
-// Aquí irán las funciones que consumen los endpoints del API (GET, POST, PUT)
-// usando apiClient. Se implementan en los siguientes avances.
-// eslint-disable-next-line no-unused-vars
-import { apiClient } from "./client";
+import { apiClient, obtenerDatos } from "./client";
+
+// GET /restricciones-horario  ->  restricciones con tipo y empleado (si aplica)
+export async function obtenerRestricciones() {
+  return obtenerDatos(await apiClient.get("/restricciones-horario"));
+}
+
+// GET /restricciones-horario/:id
+export async function obtenerRestriccion(id) {
+  return obtenerDatos(await apiClient.get(`/restricciones-horario/${id}`));
+}

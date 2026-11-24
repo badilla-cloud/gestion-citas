@@ -1,5 +1,11 @@
-// Servicio del módulo de horarios.
-// Aquí irán las funciones que consumen los endpoints del API (GET, POST, PUT)
-// usando apiClient. Se implementan en los siguientes avances.
-// eslint-disable-next-line no-unused-vars
-import { apiClient } from "./client";
+import { apiClient, obtenerDatos } from "./client";
+
+// GET /horarios-atencion  ->  horarios con su día de la semana (horas en formato "HH:mm")
+export async function obtenerHorarios() {
+  return obtenerDatos(await apiClient.get("/horarios-atencion"));
+}
+
+// GET /horarios-atencion/:id
+export async function obtenerHorario(id) {
+  return obtenerDatos(await apiClient.get(`/horarios-atencion/${id}`));
+}

@@ -1,5 +1,16 @@
-// Servicio del módulo de adicionales.
-// Aquí irán las funciones que consumen los endpoints del API (GET, POST, PUT)
-// usando apiClient. Se implementan en los siguientes avances.
-// eslint-disable-next-line no-unused-vars
-import { apiClient } from "./client";
+import { apiClient, obtenerDatos } from "./client";
+
+// GET /servicios-adicionales
+export async function obtenerAdicionales() {
+  return obtenerDatos(await apiClient.get("/servicios-adicionales"));
+}
+
+// GET /servicios-adicionales/activos
+export async function obtenerAdicionalesActivos() {
+  return obtenerDatos(await apiClient.get("/servicios-adicionales/activos"));
+}
+
+// GET /servicios-adicionales/:id
+export async function obtenerAdicional(id) {
+  return obtenerDatos(await apiClient.get(`/servicios-adicionales/${id}`));
+}
